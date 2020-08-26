@@ -10,17 +10,17 @@ function App() {
           <header className="App-header">
               <ul>
                   <li>
-                      <NavLink exact to="/">
+                      <NavLink exact to="/" activeClassName="active">
                           <HomeOutlined/> 商城
                       </NavLink>
                   </li>
                   <li>
-                      <NavLink exact to="/order">
+                      <NavLink exact to="/order" activeClassName="active">
                           <ShoppingCartOutlined/> 订单
                       </NavLink>
                   </li>
                   <li>
-                      <NavLink exact to="/add">
+                      <NavLink exact to="/add" activeClassName="active">
                           <PlusOutlined/> 添加商品
                       </NavLink>
                   </li>
