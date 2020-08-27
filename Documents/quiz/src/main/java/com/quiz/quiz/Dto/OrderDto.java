@@ -9,19 +9,18 @@ import javax.persistence.*;
 
 @Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Table(name = "products")
-public class ProductDto {
+@Table(name = "order_list")
+public class OrderDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private double price;
-    private String imageUrl;
+    private int count;
     private String unit;
-
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "product")
-    private OrderDto orderDto;
+    @OneToOne(cascade = CascadeType.ALL)
+    private ProductDto product;
 }
