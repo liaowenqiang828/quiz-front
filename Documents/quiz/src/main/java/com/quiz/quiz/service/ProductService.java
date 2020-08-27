@@ -30,9 +30,7 @@ public class ProductService {
         return ResponseEntity.ok(list);
     }
 
-    public ResponseEntity addProductToMall(String string) throws JsonProcessingException {
-        ProductDto productDto = objectMapper.readValue(string, ProductDto.class);
-
+    public ResponseEntity addProductToMall(ProductDto productDto) throws JsonProcessingException {
         OrderDto orderDto = OrderDto.builder()
                 .name(productDto.getName())
                 .price(productDto.getPrice())
@@ -44,7 +42,7 @@ public class ProductService {
         AtomicBoolean isAdd = new AtomicBoolean(false);
 
         list.stream().forEach(item -> {
-            if (item.getName().equals(item.getName())) {
+            if (item.getName().equals(orderDto.getName())) {
                 item.setCount(item.getCount() + 1);
                 isAdd.set(true);
             };

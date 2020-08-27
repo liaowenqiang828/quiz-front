@@ -1,6 +1,7 @@
 package com.quiz.quiz.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.quiz.quiz.Dto.ProductDto;
 import com.quiz.quiz.repository.ProductRepository;
 import com.quiz.quiz.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class ProductController {
 
     @CrossOrigin
     @PostMapping("/product")
-    public ResponseEntity addProductToMall(@RequestBody String string) throws JsonProcessingException {
-        return productService.addProductToMall(string);
+    public ResponseEntity addProductToMall(@RequestBody ProductDto productDto) throws JsonProcessingException {
+        return productService.addProductToMall(productDto);
     }
 }

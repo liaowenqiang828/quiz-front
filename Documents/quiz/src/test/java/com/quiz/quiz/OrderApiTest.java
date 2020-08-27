@@ -1,8 +1,10 @@
 package com.quiz.quiz;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.quiz.quiz.Dto.OrderDto;
 import com.quiz.quiz.Dto.ProductDto;
 import com.quiz.quiz.repository.OrderRepository;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -13,7 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -49,4 +51,28 @@ public class OrderApiTest {
         assertEquals(orderDtoList.get(0).getPrice(), 1299.00);
         assertEquals(orderDtoList.get(0).getUnit(), "瓶");
     }
+
+    @Test
+    void deleteProductFromOrderListById() throws Exception {
+        ProductDto productDto = ProductDto.builder()
+                .name("茅台")
+                .price(1299.00)
+                .imageUrl("https://icon.qiantucdn.com/20200820/83d12074ff9be098864ec790fb7e75d22")
+                .unit("瓶")
+                .build();
+        OrderDto orderDto = OrderDto.builder()
+                .count(1)
+                .product(productDto)
+                .unit(productDto.getUnit())
+                .price(productDto.getPrice())
+                .name(productDto.getName())
+                .build();
+        OrderDto orderDto1 = orderRepository.save(orderDto);
+        int id = orderDto1.getId();
+        mockMvc.perform(delete("/order/" + id).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+        List<OrderDto> list = orderRepository.findAll();
+        assertEquals(list.size(), 0);
+    }
+
 }

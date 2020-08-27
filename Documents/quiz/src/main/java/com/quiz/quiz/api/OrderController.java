@@ -1,10 +1,9 @@
 package com.quiz.quiz.api;
 
+import com.quiz.quiz.Dto.ProductDto;
 import com.quiz.quiz.service.OrderService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class OrderController {
@@ -18,5 +17,11 @@ public class OrderController {
     @GetMapping("/orders")
     public ResponseEntity getOrderList() {
         return orderService.getOrderList();
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/order/{id}")
+    public ResponseEntity deleteProductFromOrderTableById(@PathVariable int id) {
+        return orderService.deleteProductFromOrderTableById(id);
     }
 }
