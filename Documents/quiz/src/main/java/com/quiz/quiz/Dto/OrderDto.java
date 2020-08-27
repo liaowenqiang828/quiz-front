@@ -1,5 +1,6 @@
 package com.quiz.quiz.Dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class OrderDto {
     private double price;
     private int count;
     private String unit;
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     private ProductDto product;
 }

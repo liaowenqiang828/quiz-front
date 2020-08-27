@@ -28,5 +28,4 @@ public class ProductController {
     public ResponseEntity addProductToMall(@RequestBody String string) throws JsonProcessingException {
         return productService.addProductToMall(string);
     }
-
 }
