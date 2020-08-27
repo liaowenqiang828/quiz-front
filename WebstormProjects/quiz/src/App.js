@@ -5,6 +5,7 @@ import HomeIcon from "./icons/home.png";
 import Cart from "./icons/cart.png";
 import Add from "./icons/add.png";
 import Mall from "./components/mall/Mall";
+import Order from "./components/order/Order";
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
                   </li>
               </ul>
           </header>
-            <Route exact path="/" component={Mall}></Route>
+            <Route exact path="/" component={Mall}/>
+            <Route exact path="/order" component={Order}/>
 
             <footer>TW Mall @2018 Created by ForCheng</footer>
         </BrowserRouter>

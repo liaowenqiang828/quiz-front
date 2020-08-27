@@ -1,0 +1,12 @@
+.order {
+  width: 800px;
+  height: 488px;
+
+  margin: auto;
+  padding: 0 20px;
+  background-color: white;
+}
+
+.order .deleteButton {
+  color: red;
+}
