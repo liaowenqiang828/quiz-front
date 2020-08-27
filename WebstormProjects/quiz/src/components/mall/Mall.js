@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "./mall.css";
 import Product from "./Product";
 import Loading from "../loading/Loading";
+import {message} from "antd";
 
 class Mall extends Component {
     constructor(props) {
@@ -24,7 +25,9 @@ class Mall extends Component {
                     isLoading: true
                 });
             })
-            .catch(error => console.log(error))
+            .catch(() => {
+                message.info("添加商品失败，请重试！")
+            })
     }
 
     render() {
