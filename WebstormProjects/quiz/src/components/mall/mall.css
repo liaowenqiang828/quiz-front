@@ -1,0 +1,9 @@
+.mall {
+    padding: 20px;
+    width: 760px;
+    height: 440px;
+
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+}

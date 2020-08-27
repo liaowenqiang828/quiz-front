@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter, NavLink} from "react-router-dom";
+import { BrowserRouter, NavLink, Route} from "react-router-dom";
 import './App.css';
 import HomeIcon from "./icons/home.png";
 import Cart from "./icons/cart.png";
 import Add from "./icons/add.png";
+import Mall from "./components/mall/Mall";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                   </li>
               </ul>
           </header>
+            <Route exact path="/" component={Mall}></Route>
         </BrowserRouter>
     </div>
   );
