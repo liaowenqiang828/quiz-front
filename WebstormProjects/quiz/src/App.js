@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter, NavLink, Route} from "react-router-dom";
+import { BrowserRouter, NavLink} from "react-router-dom";
 import './App.css';
-import { HomeOutlined, PlusOutlined,  ShoppingCartOutlined} from "@ant-design/icons";
+import HomeIcon from "./icons/home.png";
+import Cart from "./icons/cart.png";
+import Add from "./icons/add.png";
 
 function App() {
   return (
@@ -11,17 +13,20 @@ function App() {
               <ul>
                   <li>
                       <NavLink exact to="/" activeClassName="active">
-                          <HomeOutlined/> 商城
+                          {/*eslint-disable-next-line*/}
+                          <img src={HomeIcon} alt=""/> 商城
                       </NavLink>
                   </li>
                   <li>
                       <NavLink exact to="/order" activeClassName="active">
-                          <ShoppingCartOutlined/> 订单
+                          {/*eslint-disable-next-line*/}
+                          <img src={Cart} alt=""/> 订单
                       </NavLink>
                   </li>
                   <li>
                       <NavLink exact to="/add" activeClassName="active">
-                          <PlusOutlined/> 添加商品
+                          {/*eslint-disable-next-line*/}
+                          <img src={Add} alt=""/> 添加商品
                       </NavLink>
                   </li>
               </ul>
