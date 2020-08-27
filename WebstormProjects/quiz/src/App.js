@@ -33,6 +33,8 @@ function App() {
               </ul>
           </header>
             <Route exact path="/" component={Mall}></Route>
+
+            <footer>TW Mall @2018 Created by ForCheng</footer>
         </BrowserRouter>
     </div>
   );

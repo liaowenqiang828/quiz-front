@@ -21,6 +21,10 @@
     padding: 0;
     text-align: left;
 }
+.product .productName {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 .price {
     font-size: 10px;
     padding-top: 5px;

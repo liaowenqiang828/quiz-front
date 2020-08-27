@@ -12,7 +12,7 @@ class Product extends Component {
         return (
             <div className="product">
                 <img src={this.props.product.imageUrl} alt=""/>
-                <p>{this.props.product.name}</p>
+                <p className="productName">{this.props.product.name}</p>
                 <p className="price">{`单价:${this.props.product.price}元/${this.props.product.unit}`}</p>
                 <img id="add_button" src={Add} alt="添加"/>
             </div>
